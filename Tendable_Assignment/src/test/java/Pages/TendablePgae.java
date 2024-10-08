@@ -118,10 +118,10 @@ public class TendablePgae {
 		// Submit form
 		driver.findElement(By.xpath(Utility.fetchLocatorProperty("submit"))).click();
 	}
-
-	public String getErrorMessage() throws IOException, InterruptedException {
-		// error message
-		Thread.sleep(500);
-		return Utility.fetchConfigProperty("data_errorMessage").toString();
+	
+	public String getErrorMessage() throws IOException {
+		String errormsg = driver.findElement(By.xpath(Utility.fetchLocatorProperty("errorMassage")))
+				.getAttribute("value");
+		return errormsg;
 	}
 }
